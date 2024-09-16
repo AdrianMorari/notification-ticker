@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, Tray, nativeImage, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, Tray, nativeImage, ipcMain, shell } = require('electron');
 const path = require('node:path');
 
 function createWindow() {
@@ -20,6 +20,8 @@ function createWindow() {
     mainWindow.loadFile('index.html').then(() => {
         mainWindow.setPosition(0, 1080);
     });
+
+    mainWindow.webContents.openDevTools();
 
     ipcMain.on('hide-window', () => {
         mainWindow.hide();
@@ -73,6 +75,7 @@ ipcMain.on('open-google-login', (event) => {
             contextIsolation: false
         }
     });
+
     loginWindow.loadURL('https://staging-bo.tmgbo.com/');
 
     loginWindow.webContents.on('did-finish-load', () => {
