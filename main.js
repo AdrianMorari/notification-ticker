@@ -4,7 +4,7 @@ const path = require('node:path');
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 1920,
-        height: 50,
+        height: 40,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -18,7 +18,7 @@ function createWindow() {
     });
 
     mainWindow.loadFile('index.html').then(() => {
-        mainWindow.setPosition(0, 770);
+        mainWindow.setPosition(0, 1080);
     });
 
     ipcMain.on('hide-window', () => {
@@ -39,37 +39,11 @@ function createWindow() {
 
 app.whenReady().then(() => {
     let tray = null;
-    let modal = null;
-
 
     const icon = nativeImage.createFromPath('assets/icon.png');
     tray = new Tray(icon);
 
     const contextMenu = Menu.buildFromTemplate([
-        {
-            label: 'Open modal',
-            click: () => {
-                modal = new BrowserWindow({
-                    frame: false,
-                    skipTaskbar: true,
-                    autoHideMenuBar: true,
-                    resizable: false,
-                    webPreferences: {
-                        preload: path.join(__dirname, 'preload.js'),
-                        contextIsolation: true,
-                        enableRemoteModule: false,
-                        nodeIntegration: false,
-                    },
-                });
-                modal.loadFile('modal.html');
-
-                ipcMain.on('hide-modal', () => {
-                    if (modal) {
-                        modal.hide();
-                    }
-                });
-            }
-        },
         { label: 'Verify incoming messages', type: 'radio' },
         { label: 'Quit', click: () => { app.quit(); } }
     ]);
@@ -87,8 +61,28 @@ app.whenReady().then(() => {
         tray.popUpContextMenu(leftClickMenu);
     });
 
-    // Create the main window
     createWindow();
+});
+
+app.setAsDefaultProtocolClient('notification-ticker');
+
+ipcMain.on('open-google-login', (event) => {
+    const loginWindow = new BrowserWindow({
+        width: 400,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
+    });
+    loginWindow.loadURL('https://accounts.google.com');
+
+    loginWindow.webContents.on('did-finish-load', () => {
+        setTimeout(() => {
+            event.sender.send('google-login-success', { token: 'fake-google-token' });
+            loginWindow.close();
+        }, 3000);
+    });
 });
 
 app.on('window-all-closed', function () {
