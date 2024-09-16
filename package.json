@@ -1,0 +1,25 @@
+{
+  "name": "electron-feed",
+  "version": "1.0.0",
+  "description": "A minimal Electron feed",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://google.com",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "TBC",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  },
+  "dependencies": {
+    "latest-version": "^9.0.0"
+  }
+}
