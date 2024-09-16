@@ -5,12 +5,10 @@ document.getElementById('hideButton').addEventListener('click', () => {
   });
 
 document.getElementById('message').addEventListener('contextmenu', (event) => {
-  event.preventDefault();
   window.electron.send('show-context-menu');
 });
 
 document.getElementById('link').addEventListener('click', (event) => {
-  event.preventDefault();
   shell.openExternal(event.target.href);
 });
 

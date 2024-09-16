@@ -28,6 +28,10 @@ body {
     color: white;
 }
 
+.feed h3:hover {
+    animation-play-state: paused;
+}
+
 @keyframes feed {
     0% {
         transform: translateX(calc(100%));
