@@ -85,3 +85,7 @@ ipcMain.on('open-google-login', (event) => {
         }, 10000);
     });
 });
+
+ipcMain.on('open-external-link', (event, url) => {
+    shell.openExternal(url);
+});

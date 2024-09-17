@@ -19,6 +19,11 @@ body {
     align-items: center;
 }
 
+.feed a {
+    color: white;
+    text-decoration: none;
+}
+
 .feed h3 {
     margin: 0;
     line-height: 40px;

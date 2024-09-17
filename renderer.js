@@ -1,5 +1,3 @@
-const { shell } = require('electron');
-
 document.getElementById('hideButton').addEventListener('click', () => {
     window.electron.send('hide-window');
   });
@@ -9,7 +7,8 @@ document.getElementById('message').addEventListener('contextmenu', (event) => {
 });
 
 document.getElementById('link').addEventListener('click', (event) => {
-  shell.openExternal(event.target.href);
+    event.preventDefault();
+    window.electron.send('open-external-link', event.target.href);
 });
 
 document.getElementById('loginButton').addEventListener('click', () => {
