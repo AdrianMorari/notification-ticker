@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "Aliquam turpis purus. Vestibulum ante ipsum primis."
     ];
 
-    // Display messages inline with some gap
     messages.forEach((message) => {
         const messageDiv = document.createElement('div');
-        messageDiv.textContent = message;
+        messageDiv.className = 'message-container';
+        messageDiv.innerHTML = `<img src="assets/exclamation.png" alt="" style="display: inline-block" />    ${message}`;
         messagesContainer.appendChild(messageDiv);
     });
 });

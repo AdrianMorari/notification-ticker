@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 40px;
-    background-color: rgba(50, 50, 50, 0.8);
+    background-color: whitesmoke;
     padding: 0 10px;
 }
 
@@ -21,33 +21,21 @@ body {
     position: relative;
 }
 
-.feed a {
-    color: #00bfff;
-    text-decoration: none;
-}
-
 .messages-container {
     display: flex;
     align-items: center;
     white-space: nowrap;
-}
-
-.messages-container div {
-    margin-right: 20px;
     color: #00bfff;
-}
-
-.feed div {
-    margin: 0;
-    line-height: 40px;
-    white-space: nowrap;
-    display: inline-block;
-    color: blue;
+    gap: 80px;
     transform: translateX(100%);
     animation: feed 60s linear infinite;
 }
 
-.feed div:hover, .messages-container div:hover {
+.messages-container img {
+    margin-right: 20px;
+}
+
+.feed:hover .messages-container {
     animation-play-state: paused;
 }
 
@@ -58,11 +46,6 @@ body {
     100% {
         transform: translateX(-100%);
     }
-}
-
-.flex {
-    display: flex;
-    gap: 8px;
 }
 
 .flex button {
