@@ -18,7 +18,7 @@ document.getElementById('hideButton').addEventListener('click', () => {
     window.electron.send('hide-window');
   });
 
-document.getElementById('message').addEventListener('contextmenu', (event) => {
+document.getElementById('messagesContainer').addEventListener('contextmenu', (event) => {
   window.electron.send('show-context-menu');
 });
 

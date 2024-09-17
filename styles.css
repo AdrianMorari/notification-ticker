@@ -27,6 +27,7 @@ body {
     white-space: nowrap;
     color: #00bfff;
     gap: 80px;
+    cursor: pointer;
     transform: translateX(100%);
     animation: feed 60s linear infinite;
 }
