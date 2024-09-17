@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const messages = [
         "Praesent sit amet tortor non enim vulputate porta.",
-        "Aliquam turpis purus. Vestibulum ante ipsum primis."
+        "Aliquam turpis purus. Vestibulum ante ipsum primis.",
+        "GFGFGFGFGFGF sit amet tortor non enim vulputate porta."
     ];
 
     messages.forEach((message) => {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message-container';
-        messageDiv.innerHTML = `<img src="assets/exclamation.png" alt="" style="display: inline-block" />    ${message}`;
+        messageDiv.innerHTML = `<img src="assets/exclamation.svg" alt="" style="display: inline-block" />    ${message}`;
         messagesContainer.appendChild(messageDiv);
     });
 });
