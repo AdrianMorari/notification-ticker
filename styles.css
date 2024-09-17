@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     font-family: sans-serif;
+    overscroll-behavior: none;
 }
 
 .main-text {
@@ -8,7 +9,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(50, 50, 50, 0.8);
     padding: 0 10px;
 }
 
@@ -17,31 +18,63 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .feed a {
-    color: white;
+    color: #00bfff;
     text-decoration: none;
 }
 
-.feed h3 {
+.messages-container {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.messages-container div {
+    margin-right: 20px;
+    color: #00bfff;
+}
+
+.feed div {
     margin: 0;
     line-height: 40px;
     white-space: nowrap;
-    transform: translateX(calc(100%));
+    display: inline-block;
+    color: blue;
+    transform: translateX(100%);
     animation: feed 60s linear infinite;
-    color: white;
 }
 
-.feed h3:hover {
+.feed div:hover, .messages-container div:hover {
     animation-play-state: paused;
 }
 
 @keyframes feed {
     0% {
-        transform: translateX(calc(100%));
+        transform: translateX(100%);
     }
     100% {
         transform: translateX(-100%);
     }
+}
+
+.flex {
+    display: flex;
+    gap: 8px;
+}
+
+.flex button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.flex button:hover {
+    background-color: #f0f0f0;
 }

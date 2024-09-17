@@ -21,7 +21,7 @@ function createWindow() {
         mainWindow.setPosition(0, 1080);
     });
 
-    mainWindow.webContents.openDevTools();
+    //mainWindow.webContents.openDevTools();
 
     ipcMain.on('hide-window', () => {
         mainWindow.hide();

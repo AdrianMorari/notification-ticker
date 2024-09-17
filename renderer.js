@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const messagesContainer = document.getElementById('messagesContainer');
+
+    const messages = [
+        "Praesent sit amet tortor non enim vulputate porta.",
+        "Aliquam turpis purus. Vestibulum ante ipsum primis."
+    ];
+
+    // Display messages inline with some gap
+    messages.forEach((message) => {
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        messagesContainer.appendChild(messageDiv);
+    });
+});
+
 document.getElementById('hideButton').addEventListener('click', () => {
     window.electron.send('hide-window');
   });
