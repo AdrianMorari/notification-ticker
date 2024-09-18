@@ -1,3 +1,11 @@
+:root {
+    --background-color: whitesmoke;
+    --text-color: #3B76F6;
+    --button-bg-color: white;
+    --button-text-color: black;
+    --button-hover-bg-color: #f0f0f0;
+}
+
 body {
     margin: 0 auto;
     font-family: sans-serif;
@@ -9,7 +17,7 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 48px;
-    background-color: whitesmoke;
+    background-color: var(--background-color);
     padding: 0 10px;
 }
 
@@ -26,7 +34,7 @@ body {
     display: flex;
     white-space: nowrap;
     text-align: center;
-    color: #3B76F6;
+    color: var(--text-color);
     gap: 24px;
     cursor: pointer;
     height: 40px;
@@ -54,8 +62,8 @@ body {
 }
 
 .flex button {
-    background-color: white;
-    color: black;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
@@ -64,5 +72,5 @@ body {
 }
 
 .flex button:hover {
-    background-color: #f0f0f0;
+    background-color: var(--button-hover-bg-color);
 }
