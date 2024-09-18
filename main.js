@@ -21,7 +21,7 @@ function createWindow() {
         mainWindow.setPosition(0, 1080);
     });
 
-    //mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     ipcMain.on('hide-window', () => {
         mainWindow.hide();
@@ -29,9 +29,9 @@ function createWindow() {
 
     ipcMain.on('show-context-menu', (event) => {
         const template = [
-            { label: 'Reload', click: () => { event.sender.reload(); } },
-            { label: 'Mark as read', click: () => { event.sender.close(); } },
-            { label: 'Quit', click: () => { app.quit(); } },
+            { label: 'Copy', icon: nativeImage.createFromPath(path.join(__dirname, 'assets/copy.png')), click: () => { event.sender.reload(); } },
+            { label: 'Mark as Read', icon: nativeImage.createFromPath(path.join(__dirname, 'assets/double-check.png')), click: () => { event.sender.close(); } },
+            { label: 'Link to BO', icon: nativeImage.createFromPath(path.join(__dirname, 'assets/external-link.png')), click: () => { app.quit(); } },
         ];
 
         const menu = Menu.buildFromTemplate(template);
@@ -42,7 +42,7 @@ function createWindow() {
 app.whenReady().then(() => {
     let tray = null;
 
-    const icon = nativeImage.createFromPath('assets/icon.png');
+    const icon = nativeImage.createFromPath('assets/icon2.png');
     tray = new Tray(icon);
 
     const contextMenu = Menu.buildFromTemplate([

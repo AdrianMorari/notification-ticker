@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.forEach((message) => {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message-container';
-        messageDiv.innerHTML = `<img src="assets/exclamation.svg" alt="" style="display: inline-block" />    ${message}`;
+        messageDiv.innerHTML = `<img src="assets/exclamation.svg" alt="" /> ${message}`;
         messagesContainer.appendChild(messageDiv);
     });
 });
